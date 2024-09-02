@@ -38,11 +38,10 @@ class Server:
         except IndexError:
             return []
 
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> List[List]:
-        full_dataset = self.dataset()
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
         dataset = self.get_page(page, page_size)
-        total_pages = math.ceil(len(full_dataset) / page_size)
-        if page + 1 <= total_pages:
+        total_pages = math.ceil(len(self.dataset()) / page_size)
+        if page < total_pages:
             next_page = page + 1
         else:
             next_page = None
