@@ -7,6 +7,9 @@ BaseCaching = __import__('base_caching').BaseCaching
 
 class FIFOCache(BaseCaching):
     """FIFO Caching"""
+    def __init__():
+        super().__init__()
+
     def put(self, key, item):
         """Put into the cache"""
         if key is not None or item is not None:
