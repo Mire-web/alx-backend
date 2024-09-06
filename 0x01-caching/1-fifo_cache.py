@@ -18,6 +18,6 @@ class FIFOCache(BaseCaching):
 
     def get(self, key):
         """Get item from cache"""
-        if key is not None and key in self.cache_data.keys():
-            return self.cache_data.get(key)
-        return None
+        if key is None or key not in self.cache_data.keys():
+            return None
+        return self.cache_data.get(key)
