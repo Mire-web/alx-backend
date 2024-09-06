@@ -8,11 +8,12 @@ BaseCaching = __import__('base_caching').BaseCaching
 class FIFOCache(BaseCaching):
     """FIFO Caching"""
     def __init__(self):
+        """initialize class data"""
         super().__init__()
 
     def put(self, key, item):
         """Put into the cache"""
-        if key is not None or item is not None:
+        if key is not None and item is not None:
             self.cache_data[key] = item
             if len(self.cache_data) > BaseCaching.MAX_ITEMS:
                 discarded = list(self.cache_data.keys())[0]
